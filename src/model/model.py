@@ -228,9 +228,8 @@ class Model:
     '''
     Método Responsável por resetar o model
     '''
-    def reset_model(self):
-        self._flag_rodada = 'usuario'
-    
+    def reset(self):
+        self = Model()
 
      
         

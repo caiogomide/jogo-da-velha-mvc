@@ -98,6 +98,5 @@ class Controller:
         # Coleta a sequencia vencedora
         sequencia_vencedora = self._model.sequencia_vencedora
         # Reseta a view e o model
-        self._view.reset(flag_status, sequencia_vencedora)
         self._model.reset()
-        
+        self._view.reset(flag_status, sequencia_vencedora)

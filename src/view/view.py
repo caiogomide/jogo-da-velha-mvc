@@ -335,7 +335,7 @@ class View (tk.Tk):
         [] Usuário Ganhou
         [] Agente Ganhou
     '''
-    def reset_(self, flag_status, sequencia_vencedora):
+    def reset(self, flag_status, sequencia_vencedora):
         
         # View de empate
         if flag_status == 'empate':
