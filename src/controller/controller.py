@@ -89,14 +89,41 @@ class Controller:
         return ''
 
     '''
+    Método responsável por atualizar a pontuação
+    após o término do jogo
+    '''
+    def _atualiza_pontuacao(self):
+
+        # Coleta a flag de status
+        flag_status = self._flag_status
+
+        # Pontuação de empate
+        if flag_status == 'empate':
+            self._model.incrementa_pontuacao_empate()
+        
+        # Pontuação de usuário
+        elif flag_status == 'usuario_ganhou':
+            self._model.incrementa_pontuacao_jogador()
+
+        
+        # Pontuação de agente inteligente
+        elif flag_status == 'agente_ganhou':
+            self._model.incrementa_pontuacao_agente_inteligente()
+
+
+
+    '''
     Método responsável por resetar o controller do jogo
     para o estado inicial, não retorna valores
     '''
     def reset(self):
+
         # Coleta a flag de status
         flag_status = self._flag_status()
         # Coleta a sequencia vencedora
         sequencia_vencedora = self._model.sequencia_vencedora
+        # Atualiza a pontuação do jogo
+        self._atualiza_pontuacao()
         # Reseta a view e o model
         self._model.reset()
         self._view.reset(flag_status, sequencia_vencedora)

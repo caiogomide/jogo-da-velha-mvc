@@ -229,8 +229,9 @@ class Model:
     Método Responsável por resetar o model
     '''
     def reset(self):
+        print(f'self._usuario antes de reset:{self._usuario}')
         self = Model()
-
+        print(f'self._usuario depois de reset:{self._usuario}')
      
         
         

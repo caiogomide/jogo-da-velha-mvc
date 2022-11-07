@@ -1,3 +1,4 @@
+from time import sleep
 import tkinter as tk
 from tkinter import font
 from tkinter import Button
@@ -300,12 +301,15 @@ class View (tk.Tk):
     Método responsável por personalizar
     a view da grade quando ocorre um empate
     '''
-    def _personaliza_empate(self):
+    def _personaliza_empate(self):    
         for posicao in self.posicoes.keys():     
             posicao.config(highlightbackground="#F24F00")
             posicao.config(highlightthickness=5)
             self.status.config(text="EMPATE")
             self.status.config(fg="#F24F00")
+            
+
+
     '''
     Método responsável por personalizar a view
     da grade quando o usuário ganha
@@ -317,6 +321,8 @@ class View (tk.Tk):
                 posicao.config(highlightthickness=5)
                 self.status.config(text="VOCÊ VENCEU!")
                 self.status.config(fg="#32CD32")
+
+
     '''
     Método responsável por personalizar a view
     da grade quando o Agente Inteligente ganhar
@@ -328,6 +334,8 @@ class View (tk.Tk):
                 posicao.config(highlightthickness=5)
                 self.status.config(text="VOCÊ PERDEU!")
                 self.status.config(fg="#ff0800")
+
+
     '''
     Método responsável por atualizar a view
     para três situações:
@@ -348,3 +356,8 @@ class View (tk.Tk):
         # View de agente ganhou
         elif flag_status == 'agente_ganhou':
             self._personaliza_agente_ganhou(sequencia_vencedora)
+        
+        # Gera um espaço de 5 segundos para o usuário visualizar status da partida anterior
+        sleep(5)
+
+        # Reseta view
